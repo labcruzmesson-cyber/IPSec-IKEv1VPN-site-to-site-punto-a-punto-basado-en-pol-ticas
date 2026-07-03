@@ -4,7 +4,6 @@
 **Estudiante:** Manuel Cruz
 **Docente:** Jonathan Rondón
 **Fecha:** 29 de junio de 2026
-
 ---
 
 ## Tabla de Contenidos
