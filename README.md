@@ -7,7 +7,7 @@
 
 ---
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
 - [1. Resumen y Objetivos](#1-resumen-y-objetivos)
 - [2. Topología de Red y Direccionamiento](#2-topología-de-red-y-direccionamiento)
@@ -21,7 +21,7 @@
 
 Este documento detalla la implementación y verificación de una **Red Privada Virtual (VPN) Site-to-Site** utilizando el protocolo **IPsec** (Internet Protocol Security) entre dos sedes remotas (**PEER A** y **PEER B**), interconectadas a través de un proveedor de servicios de Internet simulado (**R-ISP**).
 
-### 🎯 Objetivos del Proyecto
+### Objetivos del Proyecto
 
 - **Confidencialidad e Integridad:** asegurar el tráfico de datos entre la LAN de PEER A (`172.16.1.0/24`) y la LAN de PEER B (`172.16.2.0/24`) mediante cifrado robusto de extremo a extremo.
 - **Enrutamiento Óptimo:** configurar rutas estáticas que permitan alcanzar las subredes remotas a través del direccionamiento público asignado por el ISP.
@@ -44,7 +44,7 @@ Este documento detalla la implementación y verificación de una **Red Privada V
 
 Para el establecimiento seguro del túnel, se ha unificado la suite de criptografía en ambos peers bajo los estándares de la **Fase 1 (ISAKMP)** y la **Fase 2 (IPsec)**.
 
-### 🔐 Fase 1: IKEv1 (ISAKMP Policy)
+### Fase 1: IKEv1 (ISAKMP Policy)
 
 | Parámetro | Valor |
 |---|---|
@@ -55,7 +55,7 @@ Para el establecimiento seguro del túnel, se ha unificado la suite de criptogra
 | Tiempo de Vida (Lifetime) | 86,400 segundos (24 horas) |
 | Pre-Shared Key Empleada | `ClaveSegura123` |
 
-### 🔐 Fase 2: IPsec (Transform Set)
+### Fase 2: IPsec (Transform Set)
 
 | Parámetro | Valor |
 |---|---|
@@ -86,7 +86,7 @@ Define el **tráfico interesante**. Al aplicarse en la interfaz externa (Gi0/0),
 
 ## 5. Verificación
 
-### ✅ Validación de Fase 1 (ISAKMP)
+### Validación de Fase 1 (ISAKMP)
 
 ```
 show crypto isakmp sa
@@ -94,7 +94,7 @@ show crypto isakmp sa
 
 Debe mostrar el estado **QM_IDLE**. Esto confirma que la fase de negociación de la clave precompartida y los algoritmos fue exitosa.
 
-### ✅ Validación de Fase 2 (IPsec)
+### Validación de Fase 2 (IPsec)
 
 ```
 show crypto ipsec sa
@@ -102,7 +102,7 @@ show crypto ipsec sa
 
 Verifica las líneas `#pkts encaps: X`, `#pkts encrypt: X`, `#pkts digest: X` y sus contrapartes de `decap`/`decrypt`. Deben ser mayores a 0 tras generar tráfico.
 
-### ✅ Prueba de Conectividad End-to-End
+### Prueba de Conectividad End-to-End
 
 Desde el VPC de PEER A:
 
